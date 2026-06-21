@@ -1,0 +1,90 @@
+.tab-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab-btn:hover { color: var(--color-ink); }
+.tab-btn.active { color: var(--color-primary); border-bottom-color: var(--color-accent); }
+
+.sheet-toolbar {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.sheet-summary {
+  display: flex;
+  gap: var(--space-4);
+  font-size: 14px;
+  align-items: center;
+}
+.sheet-summary > span { display: flex; align-items: center; gap: 6px; }
+
+.status-toggle-group {
+  display: inline-flex;
+  gap: 4px;
+}
+.status-toggle {
+  width: 34px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--color-ink-muted);
+  transition: all 0.12s ease;
+}
+.status-toggle:hover { border-color: var(--color-ink-muted); }
+.status-toggle.status-p.active { background: var(--color-present); border-color: var(--color-present); color: #fff; }
+.status-toggle.status-hd.active { background: var(--color-half); border-color: var(--color-half); color: #fff; }
+.status-toggle.status-a.active { background: var(--color-absent); border-color: var(--color-absent); color: #fff; }
+.status-toggle.status-l.active { background: var(--color-leave); border-color: var(--color-leave); color: #fff; }
+
+.remarks-input {
+  width: 100%;
+  min-width: 140px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  background: transparent;
+}
+.remarks-input:focus { border-color: var(--color-primary); background: var(--color-surface); }
+
+/* Monthly grid */
+.grid-legend { display: flex; gap: 16px; font-size: 13px; color: var(--color-ink-muted); align-items: center; }
+.grid-legend span { display: flex; align-items: center; gap: 6px; }
+.legend-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+.grid-scroll { overflow-x: auto; }
+.grid-table { font-size: 12px; }
+.grid-table th, .grid-table td { padding: 6px 8px; }
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background: var(--color-surface);
+  z-index: 1;
+  min-width: 140px;
+}
+.day-col { text-align: center; min-width: 30px; }
+.grid-cell { font-weight: 700; font-family: var(--font-mono); }
+.cell-present { background: rgba(63, 115, 80, 0.12); color: var(--color-present); }
+.cell-half { background: rgba(189, 154, 82, 0.15); color: var(--color-half); }
+.cell-absent { background: rgba(181, 73, 91, 0.12); color: var(--color-absent); }
+.cell-leave { background: rgba(107, 127, 166, 0.14); color: var(--color-leave); }

@@ -1,0 +1,85 @@
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.summary-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--color-sage);
+}
+.summary-card.tone-present { border-left-color: var(--color-present); }
+.summary-card.tone-absent { border-left-color: var(--color-absent); }
+.summary-card.tone-muted { border-left-color: var(--color-border-strong); }
+
+.summary-card-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: 6px;
+}
+.summary-card-value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+.summary-card-sub {
+  font-size: 12px;
+  color: var(--color-ink-muted);
+  margin-top: 4px;
+}
+
+.dashboard-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.bloom-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.bloom-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+.bloom-legend li { display: flex; align-items: center; gap: 8px; }
+.bloom-legend strong { margin-left: auto; font-family: var(--font-mono); }
+.bloom-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+.activity-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.activity-list li { display: flex; gap: 10px; align-items: flex-start; }
+.activity-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--color-sage);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.activity-desc { font-size: 14px; }
+.activity-time { font-size: 12px; color: var(--color-ink-muted); }
+
+.dashboard-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+@media (max-width: 980px) {
+  .dashboard-split { grid-template-columns: 1fr; }
+}
