@@ -12,6 +12,7 @@ import SalaryPage from './pages/SalaryPage';
 import ReportsPage from './pages/ReportsPage';
 import UsersPage from './pages/UsersPage';
 import NotFoundPage from './pages/NotFoundPage';
+import AdvancePage from './pages/AdvancePage';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/attendance" element={<AttendancePage />} />
               <Route path="/salary" element={<SalaryPage />} />
               <Route path="/reports" element={<ReportsPage />} />
+              <Route path="/advance" element={<AdvancePage />} />
             </Route>
 
             <Route element={<ProtectedRoute adminOnly />}>
