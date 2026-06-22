@@ -9,6 +9,7 @@ export default function GenerateSalaryModal({ onClose, onSubmit, submitting, def
   const [year, setYear] = useState(defaultYear);
   const [employeeId, setEmployeeId] = useState('');
   const [deductions, setDeductions] = useState('0');
+  const [autoDeduct, setAutoDeduct] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function GenerateSalaryModal({ onClose, onSubmit, submitting, def
         year: Number(year),
         employeeId: employeeId ? Number(employeeId) : null,
         deductions: Number(deductions) || 0,
+        autoDeductPendingAdvances: autoDeduct,
       });
     } catch (err) {
       setError(err.message);
@@ -64,13 +66,27 @@ export default function GenerateSalaryModal({ onClose, onSubmit, submitting, def
         </div>
 
         <div className="field">
-          <label htmlFor="gen-deductions">Flat deductions (₹)</label>
+          <label htmlFor="gen-deductions">Additional flat deductions (₹)</label>
           <input id="gen-deductions" type="number" min="0" step="0.01" value={deductions} onChange={(e) => setDeductions(e.target.value)} />
-          <span className="field-hint">Applied to each selected employee's gross salary, e.g. advance recovery.</span>
+          <span className="field-hint">Applied on top of any advance auto-deduction below.</span>
+        </div>
+
+        <div className="field">
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontWeight: 500 }}>
+            <input
+              type="checkbox"
+              checked={autoDeduct}
+              onChange={(e) => setAutoDeduct(e.target.checked)}
+            />
+            Auto-deduct pending advance balance
+          </label>
+          <span className="field-hint">
+            If ticked, any unrecovered advance amounts will automatically be included as deductions in the salary calculation.
+          </span>
         </div>
 
         <div className="alert" style={{ background: 'var(--color-surface-alt)', borderColor: 'var(--color-border)', color: 'var(--color-ink-muted)' }}>
-          Formula: (Present Days × Daily Wage) + (Half Days × Daily Wage ÷ 2) − Deductions
+          Formula: (Present Days × Daily Wage) + (Half Days × Daily Wage ÷ 2) − Pending Advances − Additional Deductions
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12, marginTop: 8 }}>

@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { to: '/attendance', label: 'Attendance', icon: AttendanceIcon },
   { to: '/salary', label: 'Salary', icon: SalaryIcon },
   { to: '/reports', label: 'Reports', icon: ReportsIcon },
+  { to: '/advance', label: 'Advances', icon: AdvanceIcon },
 ];
 
 export default function Sidebar() {
@@ -83,6 +84,9 @@ function AttendanceIcon() {
 }
 function SalaryIcon() {
   return <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9 5.5v7M11 7.2c0-1-1-1.4-2-1.4-1.1 0-2 .5-2 1.4 0 2 4 1 4 3 0 .9-.9 1.4-2 1.4-1 0-2-.4-2-1.4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>;
+}
+function AdvanceIcon() {
+  return <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M3 9l3-3M3 9l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/><rect x="10" y="5" width="5" height="8" rx="1" stroke="currentColor" strokeWidth="1.4"/></svg>;
 }
 function ReportsIcon() {
   return <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V8M8 15V3M13 15v-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>;
