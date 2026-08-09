@@ -11,7 +11,7 @@ jobs:
 
   build-deploy:
 
-    runs-on: [self-hosted, Windows, X64, ATTENDANCE-WINDOWS]
+    runs-on: [self-hosted, Windows, X64]
 
     env:
       DEPLOY_PATH: 'E:\Projects\AttendanceSystemUI'
