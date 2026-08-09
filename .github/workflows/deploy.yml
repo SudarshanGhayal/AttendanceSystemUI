@@ -177,14 +177,18 @@ jobs:
 
           Write-Host "Robocopy exit code: $robocopyExitCode"
 
-          if ($robocopyExitCode -ge 8) {
+           # Robocopy exit codes 0-7 are successful/non-fatal
+           if ($robocopyExitCode -ge 8) {
 
-              Write-Error "React deployment failed."
-
-              exit $robocopyExitCode
+               Write-Error "React deployment failed. Robocopy exit code: $robocopyExitCode"
+               exit 1
           }
 
-          Write-Host "React deployment completed."
+          Write-Host "React deployment completed successfully."
+          
+      # Important: Robocopy returns 1 when files are copied.
+      # Tell GitHub Actions that this is a successful deployment.
+       exit 0
 
 
       # ==========================================
